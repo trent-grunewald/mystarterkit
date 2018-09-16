@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
+const cleanCSS = require('gulp-clean');
 
 gulp.task('sass', function (){
   //targets any folder inside the src/scss that has scss files
@@ -16,6 +17,18 @@ gulp.task('sass', function (){
   //converts all the folder files to css
   .pipe(gulp.dest('./public/css'));
 });
+
+gulp.task('sass:minify', () => {
+  return gulp.src('./src/scss/**/*.scss')
+  .pipe(sass().on('error', sass.logerror))
+  .pipe(autoprefixer({
+    browsers: ['last 2 versions']
+  }))
+  .pipe(cleanCSS({compatability: 'ie8'}))
+  .pipe(gulp.dest('./public/css'))
+})
+
+gulp.task('production', ['sass:minify'])
 
 
 //defaults to first task (sass) and adds a function
