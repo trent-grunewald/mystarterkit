@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    app: './src/js/firstComp/index.js',
+    app: './src/js/firstComp/firstComp.js',
     //vendor = js libraries
     vendor: ['react']
   },
@@ -24,16 +24,5 @@ module.exports = {
         }
       }
     ]
-  },
-
-  plugins: [
-    //
-          new webpack.optimize.CommonsChunkPlugin({
-              name: 'vendor',
-              minChunks: function (module) {
-                return module.context &&
-                module.context.indexOf('node_modles') !== -1;
-              }
-          }),
-  ]
+  }
 }

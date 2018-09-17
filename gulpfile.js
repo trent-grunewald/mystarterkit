@@ -1,7 +1,6 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
-const babel = require("babel");
 
 gulp.task('sass', function (){
   //targets any folder inside the src/scss that has scss files
