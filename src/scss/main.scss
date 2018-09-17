@@ -1,12 +1,8 @@
-@import 'header.scss';
+@import 'header';
 
 body{
   background: black;
-
-display: flex;
-
-flex-direction: row-reverse;
-
-color: purple;
+  text-align: center;
+  color: rgb(150, 218, 218);
 }
 
